@@ -3,6 +3,7 @@ Local Boost - Main Webhook Server v1.0
 Integrates: Stripe + Email + Customer DB + Dashboard
 """
 
+import sys
 import os
 import json
 from flask import Flask, request, jsonify, send_file

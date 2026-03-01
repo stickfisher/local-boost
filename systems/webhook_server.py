@@ -15,10 +15,10 @@ app = Flask(__name__)
 BASE_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(BASE_DIR / 'systems'))
 
-from systems.customer_db import get_stats, get_all_customers, add_customer, update_status
-from systems.stripe_integration import handle_webhook, verify_signature
-from systems.email_automation import get_email, send_email
-from systems.dashboard import get_dashboard_data, render_dashboard_html
+from customer_db import get_stats, get_all_customers, add_customer, update_status
+from stripe_integration import handle_webhook, verify_signature
+from email_automation import get_email, send_email
+from dashboard import get_dashboard_data, render_dashboard_html
 
 # AI for content generation
 OPENAI_KEY = os.getenv('OPENAI_API_KEY', '')
@@ -78,7 +78,7 @@ def list_customers():
 @app.route('/api/customers/<email>', methods=['GET'])
 def get_customer(email):
     """Get specific customer"""
-    from systems.customer_db import get_customer as gc
+    from customer_db import get_customer as gc
     customer = gc(email)
     if customer:
         return jsonify(customer)

@@ -9,7 +9,7 @@ from flask import Flask, jsonify, request, redirect
 
 app = Flask(__name__)
 
-STRIPE_KEY = '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'
+STRIPE_KEY = os.environ.get('STRIPE_KEY', 'sk_live_xxx')
 PRICE = 'price_1T6GP2HZoCR3hYeR0HWrf084'
 SB_URL = 'https://ohbxbyuwugulhhbwlubp.supabase.co'
 SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9oYnhieXV3dWd1bGhoYndsdWJwIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MjM5ODM0OCwiZXhwIjoyMDg3OTc0MzQ4fQ.BtwwoiDAN4wMk14iAd3uQE6TLE1YVNPpbrsDRv4u4yA'
